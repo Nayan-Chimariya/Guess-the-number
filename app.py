@@ -30,9 +30,9 @@ def main():
   game_running = True
   is_hint_left = True
   is_guess_left = True
-  global guess_count
-  global hint_count
-
+  guess_count = 5
+  hint_count = 3
+  
   print("\n---------------------------")
   print("welcome to Guess the number")
   print("---------------------------")
