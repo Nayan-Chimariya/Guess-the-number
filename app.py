@@ -44,36 +44,39 @@ def main():
     random_number = randint(0,100)
     while game_running == True:
       correct = random_number
-      user_guess = int(input("\nEnter your guess: "))
-      if user_guess == correct:
-        print("🏆 Correct!")
-        game_running = False
-        print("\n----------------------------------")
-        play_again = input("Do you want to play again ? (Y/N): ").lower()
-        if play_again == 'y':
-          main()
-        else:
-          end_screen()
-      else:
-        print("-------------------\n")
-        print("❌ Incorrect")
-        print(f"Your guess = {user_guess}")
-        
-        guess_count -= 1
-        if guess_count == 0:
-          is_guess_left = False
+      try:
+        user_guess = int(input("\nEnter your guess: "))
+        if user_guess == correct:
+          print("🏆 Correct!")
           game_running = False
-          print(f"The correct answer was {correct}")
           print("\n----------------------------------")
           play_again = input("Do you want to play again ? (Y/N): ").lower()
           if play_again == 'y':
             main()
           else:
             end_screen()
-        if is_guess_left == True:
-          counters(guess_count, hint_count)
-        if is_hint_left == True: 
-          hint(correct,user_guess)
+        else:
+          print("-------------------\n")
+          print("❌ Incorrect")
+          print(f"Your guess = {user_guess}")
+          
+          guess_count -= 1
+          if guess_count == 0:
+            is_guess_left = False
+            game_running = False
+            print(f"The correct answer was {correct}")
+            print("\n----------------------------------")
+            play_again = input("Do you want to play again ? (Y/N): ").lower()
+            if play_again == 'y':
+              main()
+            else:
+              end_screen()
+          if is_guess_left == True:
+            counters(guess_count, hint_count)
+          if is_hint_left == True: 
+            hint(correct,user_guess)
+      except ValueError:
+        pass
   else:
     end_screen()
     
