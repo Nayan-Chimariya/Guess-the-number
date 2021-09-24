@@ -1,6 +1,7 @@
 #game game
 from random import randint
 import time
+import os
 
 guess_count = 5
 hint_count = 3
@@ -55,6 +56,7 @@ def main():
           print("\n----------------------------------")
           play_again = input("Do you want to play again ? (Y/N): ").lower()
           if play_again == 'y':
+            os.system('cls')
             guess_count = 5
             hint_count = 3
             main()
@@ -74,6 +76,7 @@ def main():
             print("\n----------------------------------")
             play_again = input("Do you want to play again ? (Y/N): ").lower()
             if play_again == 'y':
+              os.system('cls')
               guess_count = 5
               hint_count = 3
               main()
