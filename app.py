@@ -12,7 +12,7 @@ def counters(guess_count, hint_count):
   print(f"Number of hints left = {hint_count}")
 
 def hint(correct,user_guess):
-  global hint_count
+  global hint_count 
 
   if hint_count != 0:
     if_hint = input("\nDo you want to use hint ? (Y/N): ").lower()
@@ -30,8 +30,8 @@ def main():
   game_running = True
   is_hint_left = True
   is_guess_left = True
-  guess_count = 5
-  hint_count = 3
+  global guess_count 
+  global hint_count 
   
   print("\n---------------------------")
   print("welcome to Guess the number")
@@ -52,6 +52,8 @@ def main():
           print("\n----------------------------------")
           play_again = input("Do you want to play again ? (Y/N): ").lower()
           if play_again == 'y':
+            guess_count = 5
+            hint_count = 3
             main()
           else:
             end_screen()
@@ -68,6 +70,8 @@ def main():
             print("\n----------------------------------")
             play_again = input("Do you want to play again ? (Y/N): ").lower()
             if play_again == 'y':
+              guess_count = 5
+              hint_count = 3
               main()
             else:
               end_screen()
