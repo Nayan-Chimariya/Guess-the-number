@@ -1,10 +1,13 @@
 #game game
 from random import randint
+import time
 
 guess_count = 5
 hint_count = 3
 def end_screen():
   print("\nSee ya later loser! \n")
+  time.sleep(1)
+  exit()
   
 
 def counters(guess_count, hint_count):
@@ -57,6 +60,7 @@ def main():
             main()
           else:
             end_screen()
+            
         else:
           print("-------------------\n")
           print("❌ Incorrect")
